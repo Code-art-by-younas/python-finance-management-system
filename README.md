@@ -6,14 +6,14 @@ A desktop application to track your income, expenses, and savings with visual ch
 
 ## 📌 Features
 
-- 🔐 **User authentication** (signup / login) with SHA‑256 password hashing
-- ➕ **Add transactions** (income / expense) by category, amount, date & note
-- 📊 **Monthly summary** – total income, expense, and savings (auto-calculated)
-- 📋 **Recent transactions** list (last 20 entries)
-- 🥧 **Pie chart** – expense breakdown by category (current month)
-- 📈 **Bar chart** – monthly income vs expense (current year)
-- 🗄️ **Oracle Database** (11g compatible) – persistent storage with sequences & triggers
-- ⚠️ **Error handling & logging** – silent logging to `app.log`
+- 🔐 User authentication (signup / login) with SHA‑256 password hashing
+- ➕ Add transactions (income / expense) by category, amount, date & note
+- 📊 Monthly summary – total income, expense, and savings (auto-calculated)
+- 📋 Recent transactions list (last 20 entries)
+- 🥧 Pie chart – expense breakdown by category (current month)
+- 📈 Bar chart – monthly income vs expense (current year)
+- 🗄️ Oracle Database (11g compatible) – persistent storage with sequences & triggers
+- ⚠️ Error handling & logging – silent logging to `app.log`
 
 ---
 
@@ -31,81 +31,75 @@ A desktop application to track your income, expenses, and savings with visual ch
 ---
 
 ## 📁 Project Structure
+
+```txt
 personal-finance-manager/
 │
-
-├── app.py
-
-├── config.example.py
-
-├── config.py (not uploaded)
-
-├── requirements.txt
-
-├── database.sql
-
-├── .gitignore
-
-└── README.md
-
-
----
-
-## 🚀 Setup Instructions
-
-### 1. Install Requirements
-```bash
+├── app.py                 # Main application
+├── config.example.py      # Template for credentials
+├── config.py              # Your actual credentials (not uploaded to git)
+├── requirements.txt       # Python dependencies
+├── database.sql           # Oracle schema (tables, sequences, triggers, categories)
+├── .gitignore             # Ignores config.py, logs, etc.
+└── README.md              # This file
+🚀 Setup Instructions
+1. Install Requirements
+bash
 pip install -r requirements.txt
-
 2. Setup Database
 Open Oracle SQL Developer
+
 Run database.sql
+
 3. Configure Credentials
+Rename config.example.py → config.py
 
-Rename:
+Edit config.py:
 
-config.example.py → config.py
-
-
-Edit:
-
+python
 DB_USER = "your_username"
 DB_PASS = "your_password"
 DB_HOST = "localhost"
 DB_PORT = "1521"
-DB_SERVICE = "XE"
-
+DB_SERVICE = "XE"   # or XEPDB1, ORCL
 4. Set Oracle Instant Client Path
+In app.py, update the path:
+
+python
 oracledb.init_oracle_client(lib_dir=r"C:\instantclient_21_8")
-
 5. Run Project
+bash
 python app.py
-
 📸 Screenshots
+https://sinup.png
+https://login.png
+https://dashboard.png
+https://expense-piechart.png
+https://monthly-bar-chart.png
 
-Add images here:
-
-Login Screen
-Dashboard
-Pie Chart
-Bar Chart
 👨‍💻 Author
-
 Muhammad Younas
 Junior Python & Web Developer
 
 🎓 Learning Highlights
-Oracle 11g compatibility (ROWNUM, sequences)
-Secure password hashing with SHA-256
-Tkinter GUI application development
-Database integration with Python
-Data visualization using Matplotlib
-Clean project structure for GitHub
-📜 License
+Oracle 11g compatibility (ROWNUM, sequences & triggers)
 
-This project is for educational purposes.
+Secure password hashing with SHA‑256
+
+Tkinter GUI application development
+
+Database integration with Python
+
+Data visualization using Matplotlib
+
+Clean project structure for GitHub
+
+📜 License
+This project is for educational purposes – part of the Database Systems course.
 
 🙏 Acknowledgements
 Oracle Database
+
 Python & Tkinter
+
 Matplotlib
